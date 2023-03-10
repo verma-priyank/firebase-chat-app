@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Auth from "./cmponents/auth/auth.components";
+import { useEffect, useState } from "react";
+import Home from "./cmponents/home/home.component";
+import { useDispatch } from "react-redux";
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListener,
+} from "./utils/firbase.utils";
+import { setCurrentUser, setUserDocRef } from "./store/users/users.action";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [isCurrentUser, setIsCurrentUser] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener(async (user) => {
+      
+      if (user) {
+        
+        setIsCurrentUser(true);
+        if(user){
+        const res = await createUserDocumentFromAuth(user);
+        
+        dispatch(setCurrentUser(user));
+        if( res ){
+          dispatch(setUserDocRef(res));
+        }
+        
+        }
+      } else {
+        dispatch(setCurrentUser(user));
+        setIsCurrentUser(false);
+        dispatch(setUserDocRef(null));
+      }
+      
+     
+    });
+    return () => unsubscribe();
+  }, []);
+  return <div>{isCurrentUser ? <Home /> : <Auth />}</div>;
 }
 
 export default App;

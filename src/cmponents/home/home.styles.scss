@@ -1,0 +1,67 @@
+.main-box{
+    width: 95%;
+    color: azure;
+    background-color: rgb(18, 19, 19);
+    margin:  20px auto;
+}
+.home-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 20px 10px
+}
+.home-boxes{
+    display: flex;
+}
+.scroll-area{
+    overflow-y: scroll;
+}
+.py {
+    padding-top: 2rem !important;
+}
+.sidebar-chat{
+    background-color: aquamarine;
+}
+.bg-color-fix{
+    background-color: #c21212;
+}
+.card-header {
+    background-color: blue
+    // rgba(175, 124, 124, 0);
+    /* border-bottom: 2px solid #f5f5f5; */
+}
+.card-header p{
+    margin: 0px 10px 0px 10px;
+}
+.sidebar-scroll{
+    height: 31rem;
+    overflow-y: scroll;
+    width: 35%;
+}
+.chat-area-scroll{
+    height: 25rem;
+    overflow-y: scroll;
+}
+.input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input-button{
+    border-radius: 9%;
+    height: 34px;
+    margin-top: 28px;
+}
+.form-outline {
+    width: 90%;
+    
+}
+.form-label{
+    margin-top: 14px;
+}
+.form-outline .form-control{
+    margin-top: 20px;
+}
+
+
+
+

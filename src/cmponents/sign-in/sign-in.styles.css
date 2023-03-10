@@ -1,0 +1,17 @@
+.sign-in-form{
+    width: 30%;
+    align-items: center;
+    
+    margin: 150px auto;
+}
+
+.button{
+   width: 100%;
+   
+}
+.sign-in-button{
+    text-decoration: none;
+    border: none;
+    color:blue
+    
+}

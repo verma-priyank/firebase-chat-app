@@ -1,0 +1,4 @@
+
+export const FETCH_USERS ={
+    FETCH_RECIVER:'CONNECTION/FETCH_RECIVER'
+}
